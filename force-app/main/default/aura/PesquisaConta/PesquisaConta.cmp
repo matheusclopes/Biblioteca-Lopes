@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" controller="PesquisaContaController">
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+   <aura:attribute name="acctList" type="Account[]"/>
+    <aura:attribute name="columns" type="List"/>
+    
+    <div class="row">
+        <h2 class="header">Buscar Conta</h2>
+        <lightning:input name="input3" label="Text field with a placeholder" placeholder="Insira o Id ou Nome da Conta"/>
+        <lightning:button variant="brand" label="Pesquisar" title="Pesquiasar" onclick="{! c.buscarConta }" />
+    </div>
+    
+	<div style="height: 300px">
+        <lightning:datatable
+                keyField="id"
+                data="{! v.acctList }"
+                columns="{! v.columns }"
+                hideCheckboxColumn="true"/>
+    </div>	
+</aura:component>
